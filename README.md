@@ -1,7 +1,5 @@
 # 📛 Create an original domain name system on Polygon.
 
-![](https://i.imgur.com/wQzjeTN.png)
-
 このコースを始めるには、下記のステップを実行してください。
 
 1. あなたのGithubアカウントにこのレポジトリをフォークしましょう。
