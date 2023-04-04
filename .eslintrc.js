@@ -18,7 +18,7 @@ module.exports = {
     ],
     'node/no-unpublished-require': [
       'warn',
-      { allowModules: ['tailwind-scrollbar'] },
+      { allowModules: ['hardhat', '@nomicfoundation/hardhat-toolbox'] },
     ],
     'node/no-unpublished-import': ['warn'],
     'node/no-missing-import': ['warn'],
