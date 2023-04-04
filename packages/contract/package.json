@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx hardhat test"
+    "test": "npx hardhat test",
+    "run:contract": "npx hardhat run scripts/run.js",
+    "deploy": "npx hardhat run scripts/deploy.js --network mumbai",
+    "solhint": "solhint --max-error 0 -c ./.solhint.json \"contracts/**/*.sol\"",
+    "solhint:fix": "solhint --fix --max-error 0 -c ./.solhint.json \"contracts/**/*.sol\""
   },
   "keywords": [],
   "author": "",
@@ -12,7 +16,7 @@
   "devDependencies": {
     "@ethersproject/providers": "^5.7.2",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@nomicfoundation/hardhat-network-helpers": "1.0.7",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
@@ -24,12 +28,14 @@
     "ethers": "^5.7.2",
     "hardhat": "^2.13.0",
     "hardhat-gas-reporter": "^1.0.9",
+    "solhint": "3.3.7",
     "solidity-coverage": "^0.8.2",
     "ts-node": "^10.9.1",
     "typechain": "^8.1.1",
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.2"
+    "@openzeppelin/contracts": "^4.8.2",
+    "dotenv": "^16.0.3"
   }
 }
