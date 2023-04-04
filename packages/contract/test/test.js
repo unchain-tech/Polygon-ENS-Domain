@@ -61,7 +61,9 @@ describe('ENS-Domain', () => {
     const ownerAfterBalance = await hre.ethers.provider.getBalance(
       owner.address,
     );
-    expect(hre.ethers.utils.formatEther(ownerBeforeBalance)).to.equal(hre.ethers.utils.formatEther(ownerAfterBalance));
+    expect(hre.ethers.utils.formatEther(ownerBeforeBalance)).to.equal(
+      hre.ethers.utils.formatEther(ownerAfterBalance),
+    );
   });
 
   // コントラクトのオーナーはコントラクトからトークンを引き出せることを確認
@@ -80,7 +82,7 @@ describe('ENS-Domain', () => {
     );
 
     expect(hre.ethers.utils.formatEther(ownerAfterBalance)).to.not.equal(
-      hre.ethers.utils.formatEther(ownerBeforeBalance)
+      hre.ethers.utils.formatEther(ownerBeforeBalance),
     );
   });
 
