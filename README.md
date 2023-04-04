@@ -1,9 +1,13 @@
-## 💬 Polygon-ENS-Domain(prototype)
+# 📛 Create an original domain name system on Polygon.
 
-本レポジトリは Polygon-ENS-Domain の完成版を示したものになります。
+このコースを始めるには、下記のステップを実行してください。
 
-以下の手順を実行することで Polygon-ENS-Domain の挙動を確認できます。
+1. あなたのGitHubアカウントにこのレポジトリをフォークしましょう。
 
-### レポジトリのクローン
+2. クローンしたレポジトリをあなたのローカル環境にダウンロードしましょう。
 
-[こちら](https://github.com/unchain-tech/Polygon-ENS-Domain.git)から Polygon-ENS-Domain をクローンします。
+3. ターミナルを開き、ディレクトリのルートで `npm install` を実行します。
+
+4. `npm run start` を実行してプロジェクトを開始します。
+
+5. コーディングを始めましょう。
