@@ -61,37 +61,32 @@ describe('ENS-Domain', () => {
     const ownerAfterBalance = await hre.ethers.provider.getBalance(
       owner.address,
     );
-    expect(ownerBeforeBalance).to.equal(ownerAfterBalance);
+    expect(hre.ethers.utils.formatEther(ownerBeforeBalance)).to.equal(hre.ethers.utils.formatEther(ownerAfterBalance));
   });
 
   // コントラクトのオーナーはコントラクトからトークンを引き出せることを確認
-  it('Token amount contract has is correct!', async () => {
+  it('contract owner can withdrawl token from conteract!', async () => {
     const { owner, domainContract } = await loadFixture(deployTextFixture);
 
     const ownerBeforeBalance = await hre.ethers.provider.getBalance(
       owner.address,
     );
 
-    // オーナーなら引き出せるでしょう。
     const txn = await domainContract.connect(owner).withdraw();
     await txn.wait();
 
     const ownerAfterBalance = await hre.ethers.provider.getBalance(
       owner.address,
     );
-    console.log(
-      'owner balance before withdrawal:',
-      hre.ethers.utils.formatEther(ownerBeforeBalance),
-    );
 
     expect(hre.ethers.utils.formatEther(ownerAfterBalance)).to.not.equal(
-      3233.999949023202,
+      hre.ethers.utils.formatEther(ownerBeforeBalance)
     );
   });
 
   // ドメインの長さによって価格が変化することを確認
   it('Domain value is depend on how long it is', async () => {
-    const { owner, domainContract } = await loadFixture(deployTextFixture);
+    const { domainContract } = await loadFixture(deployTextFixture);
 
     const price1 = await domainContract.price('abc');
     const price2 = await domainContract.price('defg');

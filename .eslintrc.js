@@ -18,7 +18,7 @@ module.exports = {
     ],
     'node/no-unpublished-require': [
       'warn',
-      { allowModules: ['hardhat', '@nomicfoundation/hardhat-toolbox'] },
+      { allowModules: ['hardhat', '@nomicfoundation/hardhat-toolbox', '@nomicfoundation/hardhat-network-helpers', 'chai'] },
     ],
     'node/no-unpublished-import': ['warn'],
     'node/no-missing-import': ['warn'],
