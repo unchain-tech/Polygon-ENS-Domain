@@ -49,7 +49,6 @@ contract Domains is ERC721URIStorage {
     return msg.sender == owner;
   }
 
-  // コントラクトのどこかに付け加えてください。
   function getAllNames() public view returns (string[] memory) {
     console.log('Getting all names from contract');
     string[] memory allNames = new string[](_tokenIds.current());
