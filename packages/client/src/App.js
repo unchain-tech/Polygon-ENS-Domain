@@ -8,8 +8,8 @@ import './styles/App.css';
 import contractAbi from './utils/contractABI.json';
 import { networks } from './utils/networks';
 
-// コントラクト
-const TWITTER_HANDLE = '_UNCHAIN';
+// 定数
+const TWITTER_HANDLE = 'UNCHAIN_tech';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 // 登録したいドメインです。好みで変えてみましょう。
 const tld = '.ninja';
