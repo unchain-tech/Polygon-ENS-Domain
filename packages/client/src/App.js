@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/App.css';
 import twitterLogo from './assets/twitter-logo.svg';
 
-// Constants
+// 定数
 const TWITTER_HANDLE = 'UNCHAIN_tech';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
