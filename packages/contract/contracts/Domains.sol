@@ -41,7 +41,7 @@ contract Domains is ERC721URIStorage {
   }
 
   modifier onlyOwner() {
-    require(isOwner());
+    require(isOwner(), "You aren't the owner");
     _;
   }
 
