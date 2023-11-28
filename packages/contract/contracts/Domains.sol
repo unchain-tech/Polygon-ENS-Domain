@@ -9,8 +9,6 @@ import {StringUtils} from './libraries/StringUtils.sol';
 // Base64のライブラリをインポートします。
 import {Base64} from './libraries/Base64.sol';
 
-import 'hardhat/console.sol';
-
 // インポートしたコントラクトを継承します。継承したコントラクトのメソッドを使用できるようになります。
 contract Domains is ERC721URIStorage {
   // OpenZeppelinによりtokenIdsの追跡が容易になります。
@@ -37,11 +35,10 @@ contract Domains is ERC721URIStorage {
   constructor(string memory _tld) payable ERC721('Ninja Name Service', 'NNS') {
     owner = payable(msg.sender);
     tld = _tld;
-    console.log('%s name service deployed', _tld);
   }
 
   modifier onlyOwner() {
-    require(isOwner());
+    require(isOwner(), "You aren't the owner");
     _;
   }
 
@@ -50,11 +47,9 @@ contract Domains is ERC721URIStorage {
   }
 
   function getAllNames() public view returns (string[] memory) {
-    console.log('Getting all names from contract');
     string[] memory allNames = new string[](_tokenIds.current());
     for (uint i = 0; i < _tokenIds.current(); i++) {
       allNames[i] = names[i];
-      console.log('Name for token %d is %s', i, allNames[i]);
     }
 
     return allNames;
@@ -100,13 +95,6 @@ contract Domains is ERC721URIStorage {
     uint256 length = StringUtils.strlen(name);
     string memory strLen = Strings.toString(length);
 
-    console.log(
-      'Registering %s.%s on the contract with tokenID %d',
-      name,
-      tld,
-      newRecordId
-    );
-
     // JSON形式のNFTのメタデータを作成。文字列を結合しbase64でエンコードします。
     string memory json = Base64.encode(
       abi.encodePacked(
@@ -123,10 +111,6 @@ contract Domains is ERC721URIStorage {
     string memory finalTokenUri = string(
       abi.encodePacked('data:application/json;base64,', json)
     );
-
-    console.log('\n--------------------------------------------------------');
-    console.log('Final tokenURI', finalTokenUri);
-    console.log('--------------------------------------------------------\n');
 
     _safeMint(msg.sender, newRecordId);
     _setTokenURI(newRecordId, finalTokenUri);
